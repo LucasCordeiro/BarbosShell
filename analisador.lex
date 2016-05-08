@@ -4,7 +4,9 @@
 
 %}
 
+/* Yacc defs */
 %option noyywrap
+
 %%
 
 

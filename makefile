@@ -2,7 +2,7 @@
 
 all : clean analisador
 	
-# Faz a compilacao do codigo em C++, porem precisa que exista o output do flex
+# Faz a compilacao do codigo em C, porem precisa que exista o output do flex
 analisador: lex.yy.c byson.tab.c byson.tab.h
 	@echo "\n==> Compilando...";
 	gcc byson.tab.c lex.yy.c -o calculadora

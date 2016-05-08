@@ -32,3 +32,9 @@
 *.dSYM/
 
 *.pdf
+
+byson.tab.h
+
+byson.tab.c
+
+lex.yy.c
