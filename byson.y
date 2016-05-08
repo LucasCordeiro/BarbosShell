@@ -6,8 +6,8 @@
 
 %token <symp> WORD
 
-%token <dval> INTEGER
-%token <dval> FLOAT
+%token <int> INTEGER
+%token <float> FLOAT
 
 %token PLUS
 %token MINUS
@@ -29,18 +29,13 @@
 %left '-' '+'
 %left '*' '/'
 
-%type <dval> calc
+%type<int> calc
 
 %start calc
 
 %%
 
 	calc: INTEGER				{$$ = $1;}
-		|calc PLUS calc 		{$$ = $1 + $3;}
-		|calc MINUS calc 		{$$ = $1 - $3;}
-		|calc TIMES calc 		{$$ = $1 * $3;}
-		|calc SLASH calc 		{$$ = $1 / $3;}
-		|LPAREN calc RPAREN 	{$$ = ($2)}
 
 %%
 

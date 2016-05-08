@@ -1,6 +1,7 @@
 %{
 
  #include <stdio.h>
+#include "byson.tab.h" 
 
 %}
 
@@ -19,20 +20,16 @@
 
 [0-9]+\.[0-9]+ 		{
 					 	/*Code*/
-						yylval.dval = atof(yytext);
 						return FLOAT;
 					 }
 
 [0-9]+ 				 {
 					 	/*Code*/
-						yylval.dval = atof(yytext);
 						return INTEGER;
 					 }
 
 [A-Za-z]+ 			{
 						/*Code*/
-						struct symtab *sp = symlook(yytext);
-						yylval.symp = sp;
 						return WORD;
 					}
 
