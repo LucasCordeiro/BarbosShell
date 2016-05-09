@@ -57,7 +57,8 @@
      IFCONFIG = 273,
      START = 274,
      QUIT = 275,
-     FIM_LINHA = 276
+     ERROR = 276,
+     FIM_LINHA = 277
    };
 #endif
 /* Tokens.  */
@@ -79,7 +80,8 @@
 #define IFCONFIG 273
 #define START 274
 #define QUIT 275
-#define FIM_LINHA 276
+#define ERROR 276
+#define FIM_LINHA 277
 
 
 
@@ -94,7 +96,7 @@ typedef union YYSTYPE
 	char* l_string;
 }
 /* Line 1529 of yacc.c.  */
-#line 98 "bison.tab.h"
+#line 100 "bison.tab.h"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1

@@ -22,7 +22,6 @@
 %token SLASH
 %token LPAREN
 %token RPAREN
-
 %token LS
 %token KILL
 %token MKDIR
@@ -32,6 +31,7 @@
 %token IFCONFIG
 %token START
 %token QUIT
+%token ERROR
 
 %left '-' '+'
 %left '*' '/'
@@ -41,12 +41,11 @@
 %start inicio
 
 %%
-	inicio:
-			|inicio line
+	inicio: line
+			| inicio line
 	;
 
-	line:
-		|INTEGER		{printf("oi");}
+	line: INTEGER FIM_LINHA		{printf("oi\n");}
 	;
 
 %%
@@ -59,5 +58,6 @@ int main(int argc, char **argv)
 /* função usada pelo bison para dar mensagens de erro */
 void yyerror(char *msg)
 {
-	fprintf(stderr, "erro: %s\n", msg);
+	//fprintf(stderr, "erro: %s\n", msg);
+	printf("Comando desconhecido\n");
 }

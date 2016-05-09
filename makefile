@@ -7,7 +7,7 @@ lex.yy.c: flex.lex bison.tab.h
 	flex flex.lex
 
 shell: lex.yy.c bison.tab.c bison.tab.h
-	gcc -o automa bison.tab.c lex.yy.c -lfl
+	gcc bison.tab.c lex.yy.c -ll -o automa
 
 clean:
 	rm automa bison.tab.c lex.yy.c bison.tab.h

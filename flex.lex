@@ -50,10 +50,11 @@
 						yylval.l_string = (yytext);
 						return WORD;
 					}
+. 					{ return ERROR; }
 
 %%
 
-int main(int i, char** c) 
-{
-	yylex();
-}
+//int main(int i, char** c) 
+//{
+//	yylex();
+//}
