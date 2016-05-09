@@ -29,13 +29,18 @@
 %left '-' '+'
 %left '*' '/'
 
-%type<int> calc
+%token FIM_LINHA
+%type linha
 
-%start calc
 
 %%
-
-	calc: INTEGER				{$$ = $1;}
+	linha: expressao FIM_LINHA { printf("valor: %d\n", $1); }
+ 	;
+expressao: expressao '+' termo { $$ = $1 + $3; }
+ | termo { $$ = $1; }
+ ;
+termo: INTEGER { $$ = $1; }
+ ;					
 
 %%
 

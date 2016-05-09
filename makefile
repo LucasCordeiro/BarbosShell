@@ -1,22 +1,13 @@
+all: compil
 
+bison.tab.c bison.tab.h:	bison.y
+	bison -d bison.y
 
-all : clean analisador
-	
-# Faz a compilacao do codigo em C, porem precisa que exista o output do flex
-analisador: lex.yy.c byson.tab.c byson.tab.h
-	@echo "\n==> Compilando...";
-	gcc byson.tab.c lex.yy.c -o calculadora
+lex.yy.c: flex.lex bison.tab.h
+	flex flex.lex
 
-# Gera codigo a partar da especificacao do flex
-lex.yy.c:
-	@echo "\n==> Executando FLEX para gerar código em linguagem C";
-	analisador.lex; flex -l analisador.lex
+compil: lex.yy.c bison.tab.c bison.tab.h
+	gcc -o bharbosShell bison.tab.c lex.yy.c -lfl
 
-byson.tab.c: byson.y
-	@echo "\n==> Executando BISON para gerar código em linguagem C";
-	bison -d byson.y
-
-# regra util para limpar os arquivos que o make gera automaticamente
 clean:
-	@echo "\n==> Removendo arquivos desnecessários";
-	rm -rf lex.yy.c byson.tab.h byson.tab.c calculadora lex.yy.o byson.tab.o
+	rm bharbosShell bison.tab.c lex.yy.c bison.tab.h

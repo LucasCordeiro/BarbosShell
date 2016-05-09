@@ -1,7 +1,7 @@
 %{
 
  #include <stdio.h>
-#include "byson.tab.h" 
+#include "bison.tab.h" 
 
 %}
 
