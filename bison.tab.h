@@ -56,7 +56,8 @@
      TOUCH = 272,
      IFCONFIG = 273,
      START = 274,
-     QUIT = 275
+     QUIT = 275,
+     FIM_LINHA = 276
    };
 #endif
 /* Tokens.  */
@@ -78,12 +79,23 @@
 #define IFCONFIG 273
 #define START 274
 #define QUIT 275
+#define FIM_LINHA 276
 
 
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+typedef union YYSTYPE
+#line 7 "bison.y"
+{
+	int l_int;
+	float l_float;
+	char l_char;
+	char* l_string;
+}
+/* Line 1529 of yacc.c.  */
+#line 98 "bison.tab.h"
+	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
 # define YYSTYPE_IS_TRIVIAL 1

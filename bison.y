@@ -4,10 +4,17 @@
  	void yyerror(char *);
 %}
 
-%token <symp> WORD
+%union {
+	int l_int;
+	float l_float;
+	char l_char;
+	char* l_string;
+}
 
-%token <int> INTEGER
-%token <float> FLOAT
+%token <l_string> WORD
+
+%token <l_int> INTEGER
+%token <l_float> FLOAT
 
 %token PLUS
 %token MINUS
@@ -30,17 +37,17 @@
 %left '*' '/'
 
 %token FIM_LINHA
-%type linha
 
+%start inicio
 
 %%
-	linha: expressao FIM_LINHA { printf("valor: %d\n", $1); }
- 	;
-expressao: expressao '+' termo { $$ = $1 + $3; }
- | termo { $$ = $1; }
- ;
-termo: INTEGER { $$ = $1; }
- ;					
+	inicio:
+			|inicio line
+	;
+
+	line:
+		|INTEGER		{printf("oi");}
+	;
 
 %%
 

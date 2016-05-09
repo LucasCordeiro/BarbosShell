@@ -10,6 +10,17 @@
 
 %%
 
+[0-9]+\.[0-9]+ 		{
+					 	/*Code*/
+					 	yylval.l_float = atoi(yytext);
+						return FLOAT;
+					 }
+
+[0-9]+ 				 {
+					 	/*Code*/
+					 	yylval.l_int = atoi(yytext); 
+						return INTEGER;
+					 }
 
 "+"                  { return PLUS;       }
 "-"                  { return MINUS;      }
@@ -18,20 +29,6 @@
 "("                  { return LPAREN;     }
 ")"                  { return RPAREN;     }
 
-[0-9]+\.[0-9]+ 		{
-					 	/*Code*/
-						return FLOAT;
-					 }
-
-[0-9]+ 				 {
-					 	/*Code*/
-						return INTEGER;
-					 }
-
-[A-Za-z]+ 			{
-						/*Code*/
-						return WORD;
-					}
 
 "ls"				{return LS;}
 "kill"				{return KILL;}
@@ -43,9 +40,16 @@
 "start"				{return START;}
 "quit"				{return QUIT;}
 
-. 					{ return yytext[0]; } 
 
-[ \t\n];
+
+[ \t] ; /* ignora espaços e tabs (\t) */
+ \n return FIM_LINHA;
+
+[A-Za-z]+ 			{
+						/*Code*/
+						yylval.l_string = (yytext);
+						return WORD;
+					}
 
 %%
 
