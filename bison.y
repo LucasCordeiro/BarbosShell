@@ -87,6 +87,8 @@
 								$$ = system(kill);
 								}
 			| IFCONFIG			{$$ = system("ifconfig");}
+			| QUIT 				{ printf("EXIT\n"); 
+								exit(0); }
 	;
 
 %%
