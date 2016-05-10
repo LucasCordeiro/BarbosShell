@@ -86,6 +86,7 @@
 								snprintf (kill, sizeof(kill), "kill %d\n", $2);
 								$$ = system(kill);
 								}
+			| IFCONFIG			{$$ = system("ifconfig");}
 	;
 
 %%
