@@ -88,12 +88,12 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 7 "bison.y"
+#line 8 "bison.y"
 {
-	int l_int;
-	float l_float;
-	char l_char;
-	char* l_string;
+	float flot;
+	int integer;
+	char* string;
+	char xar;
 }
 /* Line 1529 of yacc.c.  */
 #line 100 "bison.tab.h"

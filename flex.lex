@@ -12,13 +12,13 @@
 
 [0-9]+\.[0-9]+ 		{
 					 	/*Code*/
-					 	yylval.l_float = atoi(yytext);
+					 	yylval.flot = atoi(yytext);
 						return FLOAT;
 					 }
 
 [0-9]+ 				 {
 					 	/*Code*/
-					 	yylval.l_int = atoi(yytext); 
+					 	yylval.integer = atoi(yytext); 
 						return INTEGER;
 					 }
 
@@ -47,7 +47,7 @@
 
 [A-Za-z]+ 			{
 						/*Code*/
-						yylval.l_string = (yytext);
+						yylval.string = (yytext);
 						return WORD;
 					}
 . 					{ return ERROR; }
