@@ -12,7 +12,7 @@
 
 [0-9]+\.[0-9]+ 		{
 					 	/*Code*/
-					 	yylval.flot = atoi(yytext);
+					 	yylval.flot = atof(yytext);
 						return FLOAT;
 					 }
 
@@ -31,6 +31,7 @@
 
 
 "ls"				{return LS;}
+"ps"				{return PS;}
 "kill"				{return KILL;}
 "mkdir"				{return MKDIR;}
 "rmdir"				{return RMDIR;}
@@ -45,7 +46,7 @@
 [ \t] ; /* ignora espaços e tabs (\t) */
  \n return FIM_LINHA;
 
-[A-Za-z]+ 			{
+[~a-zA-Z0-9\.()_/]+ {
 						/*Code*/
 						yylval.string = (yytext);
 						return WORD;

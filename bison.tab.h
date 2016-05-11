@@ -49,16 +49,17 @@
      LPAREN = 265,
      RPAREN = 266,
      LS = 267,
-     KILL = 268,
-     MKDIR = 269,
-     RMDIR = 270,
-     CD = 271,
-     TOUCH = 272,
-     IFCONFIG = 273,
-     START = 274,
-     QUIT = 275,
-     ERROR = 276,
-     FIM_LINHA = 277
+     PS = 268,
+     KILL = 269,
+     MKDIR = 270,
+     RMDIR = 271,
+     CD = 272,
+     TOUCH = 273,
+     IFCONFIG = 274,
+     START = 275,
+     QUIT = 276,
+     ERROR = 277,
+     FIM_LINHA = 278
    };
 #endif
 /* Tokens.  */
@@ -72,23 +73,24 @@
 #define LPAREN 265
 #define RPAREN 266
 #define LS 267
-#define KILL 268
-#define MKDIR 269
-#define RMDIR 270
-#define CD 271
-#define TOUCH 272
-#define IFCONFIG 273
-#define START 274
-#define QUIT 275
-#define ERROR 276
-#define FIM_LINHA 277
+#define PS 268
+#define KILL 269
+#define MKDIR 270
+#define RMDIR 271
+#define CD 272
+#define TOUCH 273
+#define IFCONFIG 274
+#define START 275
+#define QUIT 276
+#define ERROR 277
+#define FIM_LINHA 278
 
 
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 8 "bison.y"
+#line 20 "bison.y"
 {
 	float flot;
 	int integer;
@@ -96,7 +98,7 @@ typedef union YYSTYPE
 	char xar;
 }
 /* Line 1529 of yacc.c.  */
-#line 100 "bison.tab.h"
+#line 102 "bison.tab.h"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
